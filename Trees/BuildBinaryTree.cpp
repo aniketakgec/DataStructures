@@ -31,17 +31,41 @@ node *buildTree()
 
 }
 
-void printTree(node* root)
+void preOrderTraversal(node* root)
 {
      if(root==NULL)
          return;
     cout<<root->data<<"  ";
-    printTree(root->left);
-    printTree(root->right);
+    preOrderTraversal(root->left);
+    preOrderTraversal(root->right);
 }
+void InOrderTraversal(node* root)
+{
+     if(root==NULL)
+         return;
+   
+    InOrderTraversal(root->left);
+     cout<<root->data<<"  ";
+    InOrderTraversal(root->right);
+}
+
+void PostOrderTraversal(node* root)
+{
+     if(root==NULL)
+         return;
+         PostOrderTraversal(root->left);
+         PostOrderTraversal(root->right);
+         cout<<root->data<<"  ";
+}
+
+
 int main() 
 {
   node *root=buildTree(); 
-  printTree(root);
+ preOrderTraversal(root);
+ cout<<endl;
+InOrderTraversal(root);
+cout<<endl;
+ PostOrderTraversal(root);
 return 0;
 }
